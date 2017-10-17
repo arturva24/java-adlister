@@ -7,12 +7,12 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "helloWorld", urlPatterns = "/sayhello")
 public class HelloWorldServlet extends HttpServlet {
-    private int hitCount;
-    public void init(){
-        hitCount = 0;
-    }
+//    private int hitCount;
+//    public void init(){
+
+        private int hitCount = 0;
+//    }
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        hitCount++;
         String name = req.getParameter("name");
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
@@ -25,6 +25,11 @@ public class HelloWorldServlet extends HttpServlet {
         }else {
             out.println("<h2>Hello " + name + "</h2>");
         }
+
+        if (req.getParameter("reset") != null){
+            hitCount = 0;
+        }
+        hitCount++;
 
 
     }
