@@ -16,6 +16,7 @@ public class User {
     }
 
     public User(String id, String username, String email, String password) {
+
     }
 
     public long getId() {
